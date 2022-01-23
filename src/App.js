@@ -1,13 +1,11 @@
 import './App.css';
-import Banner from "./components/Banner";
+import Main from "./pages/Main";
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Banner/>
-    </div>
+    <Main/>
   );
 }
 
