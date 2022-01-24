@@ -29,7 +29,7 @@ export default function DenseAppBar() {
       <AppBar position="static" color = "default" sx={{height:350}} elevation={0}>
         <Toolbar sx={{mt:2}}>
         <Link href="/">
-          <Avatar variant ="rounded" alt="Logo" src={logo} sx={{width: 64, height: 64, ml:10}}/>
+          <Avatar variant ="rounded" alt="Logo" src={logo} sx={{width: 64, height: 64, pl:8}}/>
         </Link>
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20}}>
             Hashashin
@@ -40,7 +40,7 @@ export default function DenseAppBar() {
             edge="start"
             aria-label='menu'
             onClick = {toggleDrawer(true)}
-            sx={{mr:10}}
+            sx={{pr:8}}
           >
             <MenuIcon/>
           </IconButton>
@@ -79,10 +79,10 @@ export default function DenseAppBar() {
             <ListItemButton divider component="a" href="/steam">
               <ListItemText sx = {{textAlign: "center"}} primary="Steam Commands" />
             </ListItemButton>
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/pokemon">
               <ListItemText sx = {{textAlign: "center"}} primary="Pokemon Commands"/>
             </ListItem>
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/mtg">
               <ListItemText sx = {{textAlign: "center"}} primary="MTG Commands"/>
             </ListItem>
           </ListSubheader>

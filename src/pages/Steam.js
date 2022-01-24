@@ -18,6 +18,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
+import test from "../assets/test.gif";
 
 
 
@@ -68,13 +69,13 @@ export default function DenseAppBar() {
             <ListItem button divider>
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/steam">
               <ListItemText sx = {{textAlign: "center"}} primary="Steam Commands" />
             </ListItem>
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/pokemon">
               <ListItemText sx = {{textAlign: "center"}} primary="Pokemon Commands"/>
             </ListItem>
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/mtg">
               <ListItemText sx = {{textAlign: "center"}} primary="MTG Commands"/>
             </ListItem>
           </ListSubheader>
@@ -102,9 +103,9 @@ export default function DenseAppBar() {
                 sx={{mb:1, mt:1}}
                 size="small"
                 >
-                <ToggleButton sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
-                <ToggleButton sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
-                <ToggleButton sx={{textTransform: "none"}} value="pokemon">Pokemon</ToggleButton>
+                <ToggleButton component="a" href="/steam" sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
+                <ToggleButton component="a" href="/mtg" sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
+                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokemon</ToggleButton>
                 <ToggleButton sx={{textTransform: "none"}} value="general">General</ToggleButton>
             </ToggleButtonGroup>
         </Grid>
@@ -118,8 +119,19 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>/search</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                    <Typography>Will post an embed of requested game with game details, price, etc.</Typography>
-                    <Chip label="Parameters: game" color="primary" />
+                    <Typography sx={{pb: 0.5}}>Will post an embed of requested game with game details, price, etc.</Typography>
+                    <Chip label="Parameters: game" color="primary"/>
+                    <Accordion sx={{mt:2}} disableGutters>
+                        <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header">
+                        <Typography sx={{fontWeight: "bold"}}>Example</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <img src={test} alt="search.."/>
+                        </AccordionDetails>
+                    </Accordion>
                 </AccordionDetails>
             </Accordion>
         </Grid>
