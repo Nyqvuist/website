@@ -18,6 +18,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
+import { Fab } from '@mui/material';
 
 
 
@@ -115,11 +116,11 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/search</Typography>
+                <Typography sx={{fontWeight: "bold"}}>route</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                    <Typography sx={{pb: 0.5}}>Will post an embed of requested game with game details, price, etc.</Typography>
-                    <Chip label="Parameters: game" color="primary"/>
+                    <Typography sx={{pb: 0.5}}>Will show you all routes of a pokemon in the given version.</Typography>
+                    <Chip label="Parameters: pokemon, version" color="primary"/>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -130,63 +131,19 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/specials</Typography>
+                <Typography sx={{fontWeight: "bold"}}>nature</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                
+                <Typography sx={{pb:0.5}}>
+                  Will give you nature information for a given pokemon.
                 </Typography>
+                <Chip label="Parameters: nature (bold, adamant, calm, etc.)" color="primary"/>
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
-                <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                >
-                <Typography sx={{fontWeight: "bold"}}>/random</Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                    
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </Grid>
-        <Grid item>
-            <Accordion>
-                <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                >
-                <Typography sx={{fontWeight: "bold"}}>/count</Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                    
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </Grid>
-        <Grid item>
-            <Accordion>
-                <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                >
-                <Typography sx={{fontWeight: "bold"}}>/update</Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                    
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </Grid>
+        <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
+          <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
+        </Fab>
     </Grid>
     </Box>
   );
