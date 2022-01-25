@@ -18,11 +18,32 @@ import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
-import test from "../assets/test.gif";
+import search from "../assets/test.gif";
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import Slide from '@mui/material/Slide';
+import { Fab } from '@mui/material';
+import random from "../assets/lul.gif";
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default function DenseAppBar() {
+
+    const [open, setOpen] = React.useState(false);
+    const [gif, setGif] = React.useState()
+
+    const handleClickOpen = (gifs) => {
+      setOpen(true);
+      setGif(gifs);
+      
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     const [alignment, setAlignment] = React.useState('steam');
 
@@ -116,22 +137,22 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/search</Typography>
+                <Typography sx={{fontWeight: "bold"}}>search</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                    <Typography sx={{pb: 0.5}}>Will post an embed of requested game with game details, price, etc.</Typography>
-                    <Chip label="Parameters: game" color="primary"/>
-                    <Accordion sx={{mt:2}} disableGutters>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header">
-                        <Typography sx={{fontWeight: "bold"}}>Example</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <img src={test} alt="search.."/>
-                        </AccordionDetails>
-                    </Accordion>
+                    <Typography sx={{pb: 0.5}}>Will post an embed of requested game with game name, details, developers, price
+                    reviews and link to steam page. </Typography>
+                    <Chip label="Parameters: game" color="primary"/> <Chip  label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(search)} sx={{textTransform:"none"}}/>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="/search"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -142,12 +163,13 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/specials</Typography>
+                <Typography sx={{fontWeight: "bold"}}>specials</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                
+                <Typography sx={{pb:0.5}}>
+                  Will pull up 5 games in the "Specials" category of Steam.
                 </Typography>
+                <Chip label="Parameters: game" color="primary"/>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -158,12 +180,22 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/random</Typography>
+                <Typography sx={{fontWeight: "bold"}}>random</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                    
+                <Typography sx={{pb:0.5}}>
+                  Will post a random game based on the genre and category a user gives.
                 </Typography>
+                <Chip label="Parameters: category, genre" color="primary"/> <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(random)} sx={{textTransform:"none"}}/>
+                <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}>
+                        <DialogContent>
+                          <img src={gif} alt="/random"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -174,12 +206,13 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/count</Typography>
+                <Typography sx={{fontWeight: "bold"}}>count</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                    
+                <Typography sx={{pb:0.5}}>
+                    Will show the player count of the game searched.
                 </Typography>
+                <Chip label="Parameters: game" color="primary"/>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -190,15 +223,19 @@ export default function DenseAppBar() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/update</Typography>
+                <Typography sx={{fontWeight: "bold"}}>update</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography>
-                    
+                <Typography sx={{pb:0.5}}>
+                    Will give you the latest steam community update for the given game. 
                 </Typography>
+                <Chip label="Parameters: game" color="primary"/>
                 </AccordionDetails>
             </Accordion>
         </Grid>
+        <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
+          <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
+        </Fab>
     </Grid>
     </Box>
   );
