@@ -19,9 +19,32 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
 import { Fab } from '@mui/material';
+import card from "../assets/card.gif";
+import { Dialog } from '@mui/material';
+import { DialogContent } from '@mui/material';
+import { Slide } from '@mui/material';
+import list from "../assets/list.gif";
+import rulings from "../assets/rulings.gif";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default function DenseAppBar() {
+
+    const [open, setOpen] = React.useState(false);
+    const [gif, setGif] = React.useState()
+
+    const handleClickOpen = (gifs) => {
+      setOpen(true);
+      setGif(gifs);
+      
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };  
 
     const [alignment, setAlignment] = React.useState('mtg');
 
@@ -65,7 +88,7 @@ export default function DenseAppBar() {
       >
         <List>
           <ListSubheader sx = {{textAlign: "center"}}> Hashashin Commands
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/general">
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
             <ListItem button divider component="a" href="/steam">
@@ -104,8 +127,8 @@ export default function DenseAppBar() {
                 >
                 <ToggleButton component="a" href="/steam" sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
                 <ToggleButton component="a" href="/mtg" sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
-                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokemon</ToggleButton>
-                <ToggleButton sx={{textTransform: "none"}} value="general">General</ToggleButton>
+                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokémon</ToggleButton>
+                <ToggleButton component="a" href="/general" sx={{textTransform: "none"}} value="general">General</ToggleButton>
             </ToggleButtonGroup>
         </Grid>
         <Grid item>
@@ -118,8 +141,31 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>card</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                    <Typography sx={{pb: 0.5}}>Will pull up the image of the search card.</Typography>
-                    <Chip label="Parameters: card" color="primary"/>
+                    <Typography sx={{pb:1.5}}>Will pull up the image of the search card.</Typography>
+                    <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(card)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="card"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -133,10 +179,33 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>rulings</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                   Will pull up all the official rulings for the searched card.
                 </Typography>
-                <Chip label="Parameters: card" color="primary"/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(rulings)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="rulings"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -150,10 +219,33 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>list</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                   Will pull up a list of all similar cards and set of searched term.
                 </Typography>
-                <Chip label="Parameters: card" color="primary"/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(list)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="list"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>

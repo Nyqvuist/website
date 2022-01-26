@@ -19,10 +19,32 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
 import { Fab } from '@mui/material';
+import route from "../assets/route.gif";
+import nature from "../assets/nature.gif";
+import { Dialog } from '@mui/material';
+import { Slide } from '@mui/material';
+import { DialogContent } from '@mui/material';
 
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default function DenseAppBar() {
+
+    const [open, setOpen] = React.useState(false);
+    const [gif, setGif] = React.useState()
+
+    const handleClickOpen = (gifs) => {
+      setOpen(true);
+      setGif(gifs);
+      
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     const [alignment, setAlignment] = React.useState('pokemon');
 
@@ -66,14 +88,14 @@ export default function DenseAppBar() {
       >
         <List>
           <ListSubheader sx = {{textAlign: "center"}}> Hashashin Commands
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/general">
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
             <ListItem button divider component="a" href="/steam">
               <ListItemText sx = {{textAlign: "center"}} primary="Steam Commands" />
             </ListItem>
             <ListItem button divider component="a" href="/pokemon">
-              <ListItemText sx = {{textAlign: "center"}} primary="Pokemon Commands"/>
+              <ListItemText sx = {{textAlign: "center"}} primary="Pokémon Commands"/>
             </ListItem>
             <ListItem button divider component="a" href="/mtg">
               <ListItemText sx = {{textAlign: "center"}} primary="MTG Commands"/>
@@ -106,7 +128,7 @@ export default function DenseAppBar() {
                 <ToggleButton component="a" href="/steam" sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
                 <ToggleButton component="a" href="/mtg" sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
                 <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokémon</ToggleButton>
-                <ToggleButton sx={{textTransform: "none"}} value="general">General</ToggleButton>
+                <ToggleButton component="a" href="/general" sx={{textTransform: "none"}} value="general">General</ToggleButton>
             </ToggleButtonGroup>
         </Grid>
         <Grid item>
@@ -119,8 +141,31 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>route</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                    <Typography sx={{pb: 0.5}}>Will show you all routes of a pokemon in the given version.</Typography>
-                    <Chip label="Parameters: pokemon, version" color="primary"/>
+                    <Typography sx={{pb: 1.5}}>Will show you all routes of a pokemon in the given version.</Typography>
+                    <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(route)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="route"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -134,10 +179,33 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>nature</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                   Will give you nature information for a given pokemon.
                 </Typography>
-                <Chip label="Parameters: nature (bold, adamant, calm, etc.)" color="primary"/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(nature)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="nature"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>

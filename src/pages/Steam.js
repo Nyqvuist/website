@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar, ListItemText, ListSubheader } from '@mui/material';
+import { Avatar, ListItemText, ListSubheader, useScrollTrigger } from '@mui/material';
 import logo from "../assets/logotrans.png"
 import { Button } from '@mui/material';
 import { Drawer } from '@mui/material';
@@ -18,12 +18,17 @@ import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
-import search from "../assets/test.gif";
+import search from "../assets/search.gif";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 import { Fab } from '@mui/material';
-import random from "../assets/lul.gif";
+import random from "../assets/random.gif";
+import count from "../assets/count.gif";
+import update from "../assets/update.gif";
+import specials from "../assets/specials.gif";
+import newlogo from "../assets/newlogotrans.png";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -61,7 +66,7 @@ export default function DenseAppBar() {
       <AppBar position="static" color = "default" elevation={0}>
         <Toolbar sx={{py:0.5}}>
         <Link href="/">
-          <Avatar variant ="rounded" alt="Logo" src={logo} sx={{width: 54, height: 54, pl:8}}/>
+          <Avatar variant ="rounded" alt="Logo" src={newlogo} sx={{width: 54, height: 54, pl:8}}/>
         </Link>
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20, mr:1}}>
             Hashashin
@@ -87,7 +92,7 @@ export default function DenseAppBar() {
       >
         <List>
           <ListSubheader sx = {{textAlign: "center"}}> Hashashin Commands
-            <ListItem button divider>
+            <ListItem button divider component="a" href="/general"> 
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
             <ListItem button divider component="a" href="/steam">
@@ -126,8 +131,8 @@ export default function DenseAppBar() {
                 >
                 <ToggleButton component="a" href="/steam" sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
                 <ToggleButton component="a" href="/mtg" sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
-                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokemon</ToggleButton>
-                <ToggleButton sx={{textTransform: "none"}} value="general">General</ToggleButton>
+                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokémon</ToggleButton>
+                <ToggleButton component="a" href="/general" sx={{textTransform: "none"}} value="general">General</ToggleButton>
             </ToggleButtonGroup>
         </Grid>
         <Grid item>
@@ -140,9 +145,22 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>search</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                    <Typography sx={{pb: 0.5}}>Will post an embed of requested game with game name, details, developers, price
+                    <Typography sx={{pb: 1.5}}>Will post an embed of requested game with game name, details, developers, price
                     reviews and link to steam page. </Typography>
-                    <Chip label="Parameters: game" color="primary"/> <Chip  label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(search)} sx={{textTransform:"none"}}/>
+                    <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(search)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
                     <Dialog
                       open={open}
                       TransitionComponent={Transition}
@@ -166,10 +184,32 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>specials</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                   Will pull up 5 games in the "Specials" category of Steam.
                 </Typography>
-                <Chip label="Parameters: game" color="primary"/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(specials)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}>
+                        <DialogContent>
+                          <img src={gif} alt="specials"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -183,10 +223,23 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>random</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                   Will post a random game based on the genre and category a user gives.
                 </Typography>
-                <Chip label="Parameters: category, genre" color="primary"/> <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(random)} sx={{textTransform:"none"}}/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(random)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
                 <Dialog
                       open={open}
                       TransitionComponent={Transition}
@@ -209,10 +262,33 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>count</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                     Will show the player count of the game searched.
                 </Typography>
-                <Chip label="Parameters: game" color="primary"/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(count)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description">
+                        <DialogContent>
+                          <img src={gif} alt="count"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
@@ -226,10 +302,34 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>update</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:0.5}}>
+                <Typography sx={{pb:1.5}}>
                     Will give you the latest steam community update for the given game. 
                 </Typography>
-                <Chip label="Parameters: game" color="primary"/>
+                <Grid
+                      container
+                      spacing={1.5}
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="baseline"
+                    >                   
+                      <Grid item>
+                        <Chip label="Parameters: game" color="primary"/>
+                      </Grid>
+                      <Grid item>
+                        <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(update)} sx={{textTransform:"none"}}/>
+                      </Grid>
+                    </Grid>
+                    <Dialog
+                      open={open}
+                      TransitionComponent={Transition}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby="alert-dialog-slide-description"
+                      maxWidth={'md'}>
+                        <DialogContent>
+                          <img src={gif} alt="update"/>
+                        </DialogContent>
+                    </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
