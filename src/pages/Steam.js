@@ -28,6 +28,7 @@ import count from "../assets/count.gif";
 import update from "../assets/update.gif";
 import specials from "../assets/specials.gif";
 import newlogo from "../assets/newlogotrans.png";
+import { Divider } from '@mui/material';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -63,7 +64,7 @@ export default function DenseAppBar() {
   }
   return (
     <Box sx = {{flexGrow: 1}}>
-      <AppBar position="static" color = "default" elevation={0}>
+      <AppBar position="static" color = "secondary" elevation={0}>
         <Toolbar sx={{py:0.5}}>
         <Link href="/">
           <Avatar variant ="rounded" alt="Logo" src={newlogo} sx={{width: 54, height: 54, pl:8}}/>
@@ -71,7 +72,6 @@ export default function DenseAppBar() {
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20, mr:1}}>
             Hashashin
           </Typography>
-          <Typography sx={{mr:2}}>Commands Menu</Typography>
           <IconButton
             color="inherit"
             edge="start"
@@ -110,15 +110,15 @@ export default function DenseAppBar() {
     </Box>
     <Grid 
         container 
-        sx={{px:20}}
         direction="column"
+        columns={{xs:4, sm:8, md:12}}
         justifyContent="center"
         alignItems="center">
         <Grid item>
-            <Typography variant="h3"  component="h3" sx={{mt:4, fontWeight:"bold"}}>Steam Commands</Typography>
+            <Typography variant="h3"  component="h4" color="secondary" sx={{mt:"2rem", fontWeight:"bold", textAlign: 'center'}}>Steam Commands</Typography>
         </Grid>
         <Grid item>
-            <Typography gutterBottom variant="subtitle1" component="h4" color="dimgray" xs={{fontWeight:"light"}}>All steam commands will start with /steam.</Typography>
+            <Typography variant="subtitle1" component="h4" color="primary" sx={{fontWeight:"light"}}>All steam commands will start with /steam.</Typography>
         </Grid>
         <Grid item>
             <ToggleButtonGroup
@@ -126,25 +126,25 @@ export default function DenseAppBar() {
                 value={alignment}
                 exclusive
                 onChange={handleChange}
-                sx={{mb:1, mt:1}}
+                sx={{mb:'0.6rem', mt:'0.2rem', backgroundColor: '#eedbc3'}}
                 size="small"
                 >
-                <ToggleButton component="a" href="/steam" sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
-                <ToggleButton component="a" href="/mtg" sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
-                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokémon</ToggleButton>
-                <ToggleButton component="a" href="/general" sx={{textTransform: "none"}} value="general">General</ToggleButton>
+                <ToggleButton component="a" href="/steam" sx={{textTransform: "none", fontWeight: 'bold'}} value="steam">Steam</ToggleButton>
+                <ToggleButton component="a" href="/mtg" sx={{textTransform: "none", fontWeight: 'bold'}} value="mtg">MTG</ToggleButton>
+                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none", fontWeight: 'bold'}} value="pokemon">Pokémon</ToggleButton>
+                <ToggleButton component="a" href="/general" sx={{textTransform: "none", fontWeight: 'bold'}} value="general">General</ToggleButton>
             </ToggleButtonGroup>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
+                aria-controls="panel2a-content"
                 id="panel1a-header"
                 >
                 <Typography sx={{fontWeight: "bold"}}>search</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
+                <AccordionDetails sx={{width:'50vw'}}>
                     <Typography sx={{pb: 1.5}}>Will post an embed of requested game with game name, details, developers, price
                     reviews and link to steam page. </Typography>
                     <Grid
@@ -174,8 +174,8 @@ export default function DenseAppBar() {
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -183,7 +183,7 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>specials</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
+                <AccordionDetails sx={{width:'50vw'}}>
                 <Typography sx={{pb:1.5}}>
                   Will pull up 5 games in the "Specials" category of Steam.
                 </Typography>
@@ -213,8 +213,8 @@ export default function DenseAppBar() {
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -222,7 +222,7 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>random</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
+                <AccordionDetails sx={{width:'50vw'}}>
                 <Typography sx={{pb:1.5}}>
                   Will post a random game based on the genre and category a user gives.
                 </Typography>
@@ -252,8 +252,8 @@ export default function DenseAppBar() {
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -261,7 +261,7 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>count</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
+                <AccordionDetails sx={{width:'50vw'}}>
                 <Typography sx={{pb:1.5}}>
                     Will show the player count of the game searched.
                 </Typography>
@@ -292,8 +292,8 @@ export default function DenseAppBar() {
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -301,7 +301,7 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>update</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
+                <AccordionDetails sx={{width:'50vw'}}>
                 <Typography sx={{pb:1.5}}>
                     Will give you the latest steam community update for the given game. 
                 </Typography>
@@ -333,6 +333,7 @@ export default function DenseAppBar() {
                 </AccordionDetails>
             </Accordion>
         </Grid>
+        <Divider variant='middle'light="true" sx={{backgroundColor: '#eedbc3', mt: "4rem", py:'0.09rem', width: '15rem'}}/>
         <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
           <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
         </Fab>

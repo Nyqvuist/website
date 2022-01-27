@@ -20,8 +20,9 @@ import { useScrollTrigger } from '@mui/material';
 import { Zoom } from '@mui/material';
 import { Fab } from '@mui/material';
 
+
 function ScrollTop(props) {
-  const { children} = props;
+  const {children} = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 250,
@@ -53,14 +54,8 @@ function ScrollTop(props) {
 }
 
 
-
 export default function DenseAppBar(props) {
 
-  const trigger = useScrollTrigger({
-    target: window,
-    threshold:400,
-    disableHysteresis:false,
-  });
   
   const [state, setState] = useState(false)
 
@@ -69,21 +64,20 @@ export default function DenseAppBar(props) {
   }
   return (
     <Box sx = {{flexGrow: 1}}>
-      <AppBar position="static" color = "default" sx={{height:350}} elevation={0}>
+      <AppBar position="static" color = "secondary" sx={{height:350, mb:2}} elevation={0}>
         <Toolbar sx={{mt:2}}>
         <Link href="/">
-          <Avatar variant="square" alt="Logo" src={newlogo} sx={{width: 64, height: 64, pl:8}}/>
+          <Avatar variant="square" alt="Logo" src={newlogo} sx={{width: 64, height: 64, pl:'4rem'}}/>
         </Link>
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20}}>
             Hashashin
           </Typography>
-          <Typography sx={{mr:2}}>Commands Menu</Typography>
           <IconButton
             color="inherit"
             edge="start"
             aria-label='menu'
             onClick = {toggleDrawer(true)}
-            sx={{pr:8}}
+            sx={{pr:'4rem'}}
           >
             <MenuIcon/>
           </IconButton>
@@ -95,7 +89,7 @@ export default function DenseAppBar(props) {
       alignItems="center"
       sx={{mt:10}}>
         <Grid item>
-          <Typography variant="h4" component="h3" sx={{fontWeight:"bold"}}>All Your Gaming Needs In One Bot.</Typography>
+          <Typography variant="h4" component="h3" sx={{fontWeight:"bold", textAlign: 'center'}}>All Your Gaming Needs In One Bot.</Typography>
         </Grid>
         <Grid item>
           <Typography gutterBottom variant="subtitle1" component="h4" color="dimgray" xs={{fontWeight:"light"}}>The Only Bot You'll Need.</Typography>
@@ -134,10 +128,29 @@ export default function DenseAppBar(props) {
     </Box>
     <Grid
       container
-      direction="row"
+      direction="rows"
+      columns={{xs:4, sm:8, md:12}}
       justifyContent="space-evenly"
       alignItems="center"
-      sx={{mt:2}}>
+      >
+      <Grid item xs={4}>
+        <Typography varint="body1" component="h3" color="secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </Typography>
+      </Grid>
+      <Grid item xs={4}>
+        <img src={test} at="test"/>
+      </Grid>
+    </Grid>
+    <Grid
+      container
+      direction="rows"
+      columns={{xs:4, sm:8, md:12}}
+      justifyContent="space-evenly"
+      alignItems="center"
+      >
       <Grid item xs={4}>
         <img src={test} at="test"/>
       </Grid>
@@ -147,23 +160,6 @@ export default function DenseAppBar(props) {
           It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
           It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
           and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </Typography>
-      </Grid>
-    </Grid>
-    <Grid
-      container
-      direction="row"
-      justifyContent="space-evenly"
-      alignItems="center"
-      sx={{mt:2}}>
-      <Grid item xs={4}>
-      <Typography varint="body1" component="h3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-          It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </Typography>
-      </Grid>
-      <Grid item xs={4}>
-        <img src={test} at="test"/>
       </Grid>
     </Grid>
     <ScrollTop {...props}>
