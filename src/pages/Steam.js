@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar, ListItemText, ListSubheader, useScrollTrigger } from '@mui/material';
-import logo from "../assets/logotrans.png"
 import { Button } from '@mui/material';
 import { Drawer } from '@mui/material';
 import { List } from '@mui/material';
@@ -16,7 +15,6 @@ import "../styles/Main.css";
 import { Link } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
 import search from "../assets/search.gif";
 import Dialog from '@mui/material/Dialog';
@@ -28,7 +26,8 @@ import count from "../assets/count.gif";
 import update from "../assets/update.gif";
 import specials from "../assets/specials.gif";
 import newlogo from "../assets/newlogotrans.png";
-import { Divider } from '@mui/material';
+import { Skeleton } from '@mui/material';
+import testlogo from "../assets/newlogotest.png"
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -51,12 +50,6 @@ export default function DenseAppBar() {
       setOpen(false);
     };
 
-    const [alignment, setAlignment] = React.useState('steam');
-
-    const handleChange = (event, newAlignment) => {
-        setAlignment(newAlignment);
-      };
-
     const [state, setState] = useState(false)
 
     const toggleDrawer = (open) => (e) => {
@@ -67,7 +60,7 @@ export default function DenseAppBar() {
       <AppBar position="static" color = "secondary" elevation={0}>
         <Toolbar sx={{py:0.5}}>
         <Link href="/">
-          <Avatar variant ="rounded" alt="Logo" src={newlogo} sx={{width: 54, height: 54, pl:8}}/>
+          <Avatar variant ="rounded" alt="Logo" src={testlogo} sx={{width: 52, height: 64, pl:8}}/>
         </Link>
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20, mr:1}}>
             Hashashin
@@ -91,7 +84,7 @@ export default function DenseAppBar() {
         variant='temporary'
       >
         <List>
-          <ListSubheader sx = {{textAlign: "center"}}> Hashashin Commands
+          <ListSubheader sx = {{textAlign: "center", fontWeight: "bold", fontSize: "1rem"}}> Hashashin Commands
             <ListItem button divider component="a" href="/general"> 
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
@@ -115,27 +108,16 @@ export default function DenseAppBar() {
         justifyContent="center"
         alignItems="center">
         <Grid item>
-            <Typography variant="h3"  component="h4" color="secondary" sx={{mt:"2rem", fontWeight:"bold", textAlign: 'center'}}>Steam Commands</Typography>
+            <Typography variant="h4"  component="h4" color="secondary" sx={{mt:"2rem", fontWeight:"bold", textAlign: 'center', mb:"2.5rem"}}>Steam Commands</Typography>
         </Grid>
         <Grid item>
-            <Typography variant="subtitle1" component="h4" color="primary" sx={{fontWeight:"light"}}>All steam commands will start with /steam.</Typography>
-        </Grid>
-        <Grid item>
-            <ToggleButtonGroup
-                color="primary"
-                value={alignment}
-                exclusive
-                onChange={handleChange}
-                sx={{mb:'0.6rem', mt:'0.2rem', backgroundColor: '#eedbc3'}}
-                size="small"
-                >
-                <ToggleButton component="a" href="/steam" sx={{textTransform: "none", fontWeight: 'bold'}} value="steam">Steam</ToggleButton>
-                <ToggleButton component="a" href="/mtg" sx={{textTransform: "none", fontWeight: 'bold'}} value="mtg">MTG</ToggleButton>
-                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none", fontWeight: 'bold'}} value="pokemon">Pokémon</ToggleButton>
-                <ToggleButton component="a" href="/general" sx={{textTransform: "none", fontWeight: 'bold'}} value="general">General</ToggleButton>
-            </ToggleButtonGroup>
+          <Typography variant="subtitle1" component="h4" color="secondary" sx={{fontWeight:"light", textAlign:'center'}}>
+            Steam commands will quickly post information, player counts
+            and recent updates of all steam games.
+          </Typography>
         </Grid>
         <Grid item sx={{pb: '0.5rem'}}>
+          <Typography variant="subtitle2" component="h4" color="primary" sx={{fontWeight:"light", mt:"2.5rem", pb:"0.5rem"}}>All steam commands will start with /steam.</Typography>
             <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -144,8 +126,8 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>search</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{width:'50vw'}}>
-                    <Typography sx={{pb: 1.5}}>Will post an embed of requested game with game name, details, developers, price
+                <AccordionDetails sx={{width:'60vw'}}>
+                    <Typography sx={{pb: "0.5rem"}}>Will post an embed of requested game with game name, details, developers, price
                     reviews and link to steam page. </Typography>
                     <Grid
                       container
@@ -166,8 +148,9 @@ export default function DenseAppBar() {
                       TransitionComponent={Transition}
                       keepMounted
                       onClose={handleClose}
-                      aria-describedby="alert-dialog-slide-description">
-                        <DialogContent>
+                      aria-describedby="alert-dialog-slide-description"
+                      >
+                        <DialogContent sx={{color:'#eedbc3'}}>
                           <img src={gif} alt="/search"/>
                         </DialogContent>
                     </Dialog>
@@ -183,8 +166,8 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>specials</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{width:'50vw'}}>
-                <Typography sx={{pb:1.5}}>
+                <AccordionDetails sx={{width:'60vw'}}>
+                <Typography sx={{pb: "0.5rem"}}>
                   Will pull up 5 games in the "Specials" category of Steam.
                 </Typography>
                 <Grid
@@ -222,8 +205,8 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>random</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{width:'50vw'}}>
-                <Typography sx={{pb:1.5}}>
+                <AccordionDetails sx={{width:'60vw'}}>
+                <Typography sx={{pb: "0.5rem"}}>
                   Will post a random game based on the genre and category a user gives.
                 </Typography>
                 <Grid
@@ -261,8 +244,8 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>count</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{width:'50vw'}}>
-                <Typography sx={{pb:1.5}}>
+                <AccordionDetails sx={{width:'60vw'}}>
+                <Typography sx={{pb: "0.5rem"}}>
                     Will show the player count of the game searched.
                 </Typography>
                 <Grid
@@ -301,8 +284,8 @@ export default function DenseAppBar() {
                 >
                 <Typography sx={{fontWeight: "bold"}}>update</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{width:'50vw'}}>
-                <Typography sx={{pb:1.5}}>
+                <AccordionDetails sx={{width:'60vw'}}>
+                <Typography sx={{pb: "0.5rem"}}>
                     Will give you the latest steam community update for the given game. 
                 </Typography>
                 <Grid
@@ -333,10 +316,28 @@ export default function DenseAppBar() {
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Divider variant='middle'light="true" sx={{backgroundColor: '#eedbc3', mt: "4rem", py:'0.09rem', width: '15rem'}}/>
+        <Skeleton sx={{width:"18rem", mt:"4rem", backgroundColor:"#eedbc3"}}/>
         <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
           <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
         </Fab>
+        <Typography color="secondary" sx={{textAlign:"center", pt:"1.5rem"}}>More Commands</Typography>
+        <Grid
+        container
+        direction="row"
+        spacing={2.5}
+        justifyContent="center"
+        alignItems="flex-start"
+        sx={{pt:"1.5rem", textAlign:"center", mb:"2rem"}}>
+          <Grid item>
+            <Button variant="outlined" color="primary" href="/mtg" sx={{textTransform:"none", width: 90}}>MTG</Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" color="primary" href="/pokemon" sx={{textTransform:"none", width: 90}}>Pokemon</Button>
+          </Grid>
+          <Grid item>
+          <Button variant="outlined" color="primary" href="/general" sx={{textTransform:"none", width: 90}}>General</Button>
+          </Grid>
+        </Grid>
     </Grid>
     </Box>
   );

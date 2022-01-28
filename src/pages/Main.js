@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar, ListItemButton, ListItemText, ListSubheader } from '@mui/material';
-import logo from "../assets/logotrans.png"
 import { Button } from '@mui/material';
 import { Drawer } from '@mui/material';
 import { List } from '@mui/material';
@@ -15,17 +14,17 @@ import { Grid } from '@mui/material';
 import "../styles/Main.css";
 import { Link } from '@mui/material';
 import newlogo from "../assets/newlogotrans.png";
-import test from "../assets/test2.jpg";
 import { useScrollTrigger } from '@mui/material';
 import { Zoom } from '@mui/material';
 import { Fab } from '@mui/material';
+
 
 
 function ScrollTop(props) {
   const {children} = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 250,
+    threshold: 0,
   });
 
   const handleClick = (event) => {
@@ -64,10 +63,10 @@ export default function DenseAppBar(props) {
   }
   return (
     <Box sx = {{flexGrow: 1}}>
-      <AppBar position="static" color = "secondary" sx={{height:350, mb:2}} elevation={0}>
+      <AppBar position="static" color = "secondary" sx={{height:300, mb:"2rem"}} elevation={0}>
         <Toolbar sx={{mt:2}}>
         <Link href="/">
-          <Avatar variant="square" alt="Logo" src={newlogo} sx={{width: 64, height: 64, pl:'4rem'}}/>
+          <Avatar variant="square" alt="Logo" src={newlogo} sx={{width: 64, height: 74, pl:'4rem'}}/>
         </Link>
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20}}>
             Hashashin
@@ -86,16 +85,15 @@ export default function DenseAppBar(props) {
       container
       direction="column"
       justifyContent="center"
-      alignItems="center"
-      sx={{mt:10}}>
+      alignItems="center">
         <Grid item>
-          <Typography variant="h4" component="h3" sx={{fontWeight:"bold", textAlign: 'center'}}>All Your Gaming Needs In One Bot.</Typography>
+          <Typography variant="h4" component="h3" sx={{fontWeight:"bold", textAlign: 'center', pt:"1rem", pb:"1rem"}}>All Your Gaming Needs In One Bot.</Typography>
         </Grid>
         <Grid item>
           <Typography gutterBottom variant="subtitle1" component="h4" color="dimgray" xs={{fontWeight:"light"}}>The Only Bot You'll Need.</Typography>
         </Grid>
         <Grid item>
-          <Button variant="contained" sx={{textTransform: "none", width:100}}>
+          <Button variant="contained" sx={{textTransform: "none", width:100, mt:"1rem"}}>
             <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
           </Button>
         </Grid>
@@ -109,7 +107,7 @@ export default function DenseAppBar(props) {
         variant='temporary'
       >
         <List>
-          <ListSubheader sx = {{textAlign: "center"}}> Hashashin Commands
+          <ListSubheader sx = {{textAlign: "center", fontWeight: "bold", fontSize: "1rem"}}> Hashashin Commands
             <ListItem button divider component="a" href="/general">
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
@@ -134,14 +132,12 @@ export default function DenseAppBar(props) {
       alignItems="center"
       >
       <Grid item xs={4}>
-        <Typography varint="body1" component="h3" color="secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-          It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </Typography>
+        <Typography varint="h3" component="h2" color="primary" sx={{fontWeight:"bold", fontSize: 20, textAlign:"center"}}>What Is The Hashashin Bot?</Typography>
+        <Typography varint="subtitle1" component="h3" color="secondary" sx={{textAlign:"center"}} >The Hashashin Bot is a gaming bot for gamers that will keep growing as more games get released.
+          The main purpose for this bot is to provide quick searches and commands for users to pull up relevant information on steam games. The bot
+           will eventually grow to provide commands for more specific games.</Typography>
       </Grid>
       <Grid item xs={4}>
-        <img src={test} at="test"/>
       </Grid>
     </Grid>
     <Grid
@@ -152,14 +148,13 @@ export default function DenseAppBar(props) {
       alignItems="center"
       >
       <Grid item xs={4}>
-        <img src={test} at="test"/>
+
       </Grid>
       <Grid item xs={4}>
-        <Typography varint="body1" component="h3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-          It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </Typography>
+        <Typography varint="h3" component="h2" color="primary" sx={{fontWeight:"bold", fontSize: 20, textAlign:"center"}}>Whats Next For Hashashin?</Typography>
+        <Typography varint="subtitle1" component="h3" color="secondary" sx={{textAlign:"center"}} >The long term goals for Hashashin is to start creating for specific commands for gamers
+            For example, Lost Ark a newly released MMO is on the list for creating an abundance of commands for users. Eventually
+            there will be enough commands to accomodate most popular and highly played games.</Typography>
       </Grid>
     </Grid>
     <ScrollTop {...props}>

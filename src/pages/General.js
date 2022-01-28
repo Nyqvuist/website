@@ -25,7 +25,8 @@ import d20 from "../assets/d20.gif";
 import d6 from "../assets/d6.gif";
 import coin from "../assets/coin.gif";
 import { Slide } from '@mui/material';
-
+import newlogo from "../assets/newlogotrans.png";
+import { Skeleton } from '@mui/material';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -46,13 +47,7 @@ export default function DenseAppBar() {
 
     const handleClose = () => {
       setOpen(false);
-    };  
-
-    const [alignment, setAlignment] = React.useState('general');
-
-    const handleChange = (event, newAlignment) => {
-        setAlignment(newAlignment);
-      };
+    };
 
     const [state, setState] = useState(false)
 
@@ -61,15 +56,14 @@ export default function DenseAppBar() {
   }
   return (
     <Box sx = {{flexGrow: 1}}>
-      <AppBar position="static" color = "default" elevation={0}>
+      <AppBar position="static" color = "secondary" elevation={0}>
         <Toolbar sx={{py:0.5}}>
         <Link href="/">
-          <Avatar variant ="rounded" alt="Logo" src={logo} sx={{width: 54, height: 54, pl:8}}/>
+          <Avatar variant ="rounded" alt="Logo" src={newlogo} sx={{width: 52, height: 64, pl:8}}/>
         </Link>
           <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20, mr:1}}>
             Hashashin
           </Typography>
-          <Typography sx={{mr:2}}>Commands Menu</Typography>
           <IconButton
             color="inherit"
             edge="start"
@@ -89,8 +83,8 @@ export default function DenseAppBar() {
         variant='temporary'
       >
         <List>
-          <ListSubheader sx = {{textAlign: "center"}}> Hashashin Commands
-            <ListItem button divider component="a" href="/general">
+          <ListSubheader sx = {{textAlign: "center", fontWeight: "bold", fontSize: "1rem"}}> Hashashin Commands
+            <ListItem button divider component="a" href="/general"> 
               <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
             </ListItem>
             <ListItem button divider component="a" href="/steam">
@@ -108,42 +102,30 @@ export default function DenseAppBar() {
     </Box>
     <Grid 
         container 
-        sx={{px:20}}
         direction="column"
+        columns={{xs:4, sm:8, md:12}}
         justifyContent="center"
         alignItems="center">
         <Grid item>
-            <Typography variant="h3"  component="h3" sx={{mt:4, fontWeight:"bold"}}>General Commands</Typography>
+            <Typography variant="h4"  component="h4" color="secondary" sx={{mt:"2rem", fontWeight:"bold", textAlign: 'center', mb:"2.5rem"}}>General Commands</Typography>
         </Grid>
         <Grid item>
-            <Typography gutterBottom variant="subtitle1" component="h4" color="dimgray" xs={{fontWeight:"light"}}>All general commands will with their own "/" header.</Typography>
+          <Typography variant="subtitle1" component="h4" color="secondary" sx={{fontWeight:"light", textAlign:'center'}}>
+            General commands will host all commands that dont have a home.
+          </Typography>
         </Grid>
-        <Grid item>
-            <ToggleButtonGroup
-                color="primary"
-                value={alignment}
-                exclusive
-                onChange={handleChange}
-                sx={{mb:1, mt:1}}
-                size="small"
-                >
-                <ToggleButton component="a" href="/steam" sx={{textTransform: "none"}} value="steam">Steam</ToggleButton>
-                <ToggleButton component="a" href="/mtg" sx={{textTransform: "none"}} value="mtg">MTG</ToggleButton>
-                <ToggleButton component="a" href="/pokemon" sx={{textTransform: "none"}} value="pokemon">Pokémon</ToggleButton>
-                <ToggleButton component="a" href="/general" sx={{textTransform: "none"}} value="general">General</ToggleButton>
-            </ToggleButtonGroup>
-        </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+          <Typography variant="subtitle2" component="h4" color="primary" sx={{fontWeight:"light", mt:"2.5rem", pb:"0.5rem"}}>All general commands will have their own "/" header.</Typography>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
+                aria-controls="panel2a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/roll d20</Typography>
+                <Typography sx={{fontWeight: "bold"}}>/d20</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
-                    <Typography sx={{pb: 1.5}}>This will roll a dice numbered 1 - 20.</Typography>
+                <AccordionDetails sx={{width:'60vw'}}>
+                    <Typography sx={{pb: "0.5rem"}}>This will roll a dice numbered 1 - 20. </Typography>
                     <Grid
                       container
                       spacing={1.5}
@@ -152,7 +134,7 @@ export default function DenseAppBar() {
                       alignItems="baseline"
                     >                   
                       <Grid item>
-                        <Chip label="Parameters: game" color="primary"/>
+                        <Chip label="Parameters: card" color="primary"/>
                       </Grid>
                       <Grid item>
                         <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(d20)} sx={{textTransform:"none"}}/>
@@ -163,25 +145,26 @@ export default function DenseAppBar() {
                       TransitionComponent={Transition}
                       keepMounted
                       onClose={handleClose}
-                      aria-describedby="alert-dialog-slide-description">
-                        <DialogContent>
-                          <img src={gif} alt="d20"/>
+                      aria-describedby="alert-dialog-slide-description"
+                      >
+                        <DialogContent sx={{color:'#eedbc3'}}>
+                          <img src={gif} alt="/search"/>
                         </DialogContent>
                     </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/roll d6</Typography>
+                <Typography sx={{fontWeight: "bold"}}>/d6</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:1.5}}>
+                <AccordionDetails sx={{width:'60vw'}}>
+                <Typography sx={{pb: "0.5rem"}}>
                   This will roll a dice numbered 1 - 6.
                 </Typography>
                 <Grid
@@ -192,36 +175,35 @@ export default function DenseAppBar() {
                       alignItems="baseline"
                     >                   
                       <Grid item>
-                        <Chip label="Parameters: game" color="primary"/>
+                        <Chip label="Parameters: card" color="primary"/>
                       </Grid>
                       <Grid item>
                         <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(d6)} sx={{textTransform:"none"}}/>
                       </Grid>
                     </Grid>
-                    <Dialog
+                <Dialog
                       open={open}
                       TransitionComponent={Transition}
                       keepMounted
-                      onClose={handleClose}
-                      aria-describedby="alert-dialog-slide-description">
+                      onClose={handleClose}>
                         <DialogContent>
-                          <img src={gif} alt="d6"/>
+                          <img src={gif} alt="specials"/>
                         </DialogContent>
                     </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
-        <Grid item>
-            <Accordion>
+        <Grid item sx={{pb: '0.5rem'}}>
+            <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                <Typography sx={{fontWeight: "bold"}}>/roll coin</Typography>
+                <Typography sx={{fontWeight: "bold"}}>/coin</Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{minWidth:870}}>
-                <Typography sx={{pb:1.5}}>
+                <AccordionDetails sx={{width:'60vw'}}>
+                <Typography sx={{pb: "0.5rem"}}>
                   This will flip a coin.
                 </Typography>
                 <Grid
@@ -232,28 +214,46 @@ export default function DenseAppBar() {
                       alignItems="baseline"
                     >                   
                       <Grid item>
-                        <Chip label="Parameters: game" color="primary"/>
+                        <Chip label="Parameters: card" color="primary"/>
                       </Grid>
                       <Grid item>
                         <Chip label="Example" variant='outlined' color='warning' onClick={() => handleClickOpen(coin)} sx={{textTransform:"none"}}/>
                       </Grid>
                     </Grid>
-                    <Dialog
+                <Dialog
                       open={open}
                       TransitionComponent={Transition}
                       keepMounted
-                      onClose={handleClose}
-                      aria-describedby="alert-dialog-slide-description">
+                      onClose={handleClose}>
                         <DialogContent>
-                          <img src={gif} alt="coin"/>
+                          <img src={gif} alt="/random"/>
                         </DialogContent>
                     </Dialog>
                 </AccordionDetails>
             </Accordion>
         </Grid>
+        <Skeleton sx={{width:"18rem", mt:"4rem", backgroundColor:"#eedbc3"}}/>
         <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
           <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
         </Fab>
+        <Typography color="secondary" sx={{textAlign:"center", pt:"1.5rem"}}>More Commands</Typography>
+        <Grid
+        container
+        direction="row"
+        spacing={2.5}
+        justifyContent="center"
+        alignItems="flex-start"
+        sx={{pt:"1.5rem", textAlign:"center", mb:"2rem"}}>
+          <Grid item>
+            <Button variant="outlined" color="primary" href="/steam" sx={{textTransform:"none", width: 90}}>Steam</Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" color="primary" href="/pokemon" sx={{textTransform:"none", width: 90}}>Pokemon</Button>
+          </Grid>
+          <Grid item>
+          <Button variant="outlined" color="primary" href="/mtg" sx={{textTransform:"none", width: 90}}>MTG</Button>
+          </Grid>
+        </Grid>
     </Grid>
     </Box>
   );
