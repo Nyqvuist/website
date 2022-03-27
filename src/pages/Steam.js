@@ -56,51 +56,7 @@ export default function DenseAppBar() {
     setState(open)
   }
   return (
-    <Box sx = {{flexGrow: 1}}>
-      <AppBar position="static" color = "secondary" elevation={0}>
-        <Toolbar sx={{py:0.5}}>
-        <Link href="/">
-          <Avatar variant ="rounded" alt="Logo" src={testlogo} sx={{width: 52, height: 64, pl:8}}/>
-        </Link>
-          <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20, mr:1}}>
-            Hashashin
-          </Typography>
-          <IconButton
-            color="inherit"
-            edge="start"
-            aria-label='menu'
-            onClick = {toggleDrawer(true)}
-            sx={{pr:8}}
-          >
-            <MenuIcon/>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    <Box>
-      <Drawer
-        anchor='right'
-        open={state}
-        onClose={toggleDrawer(false)}
-        variant='temporary'
-      >
-        <List>
-          <ListSubheader sx = {{textAlign: "center", fontWeight: "bold", fontSize: "1rem"}}> Hashashin Commands
-            <ListItem button divider component="a" href="/general"> 
-              <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
-            </ListItem>
-            <ListItem button divider component="a" href="/steam">
-              <ListItemText sx = {{textAlign: "center"}} primary="Steam Commands" />
-            </ListItem>
-            <ListItem button divider component="a" href="/pokemon">
-              <ListItemText sx = {{textAlign: "center"}} primary="Pokemon Commands"/>
-            </ListItem>
-            <ListItem button divider component="a" href="/mtg">
-              <ListItemText sx = {{textAlign: "center"}} primary="MTG Commands"/>
-            </ListItem>
-          </ListSubheader>
-        </List>
-      </Drawer>
-    </Box>
+
     <Grid 
         container 
         direction="column"
@@ -116,8 +72,8 @@ export default function DenseAppBar() {
             and recent updates of all steam games.
           </Typography>
         </Grid>
+        <Typography variant="subtitle2" component="h4" color="primary" sx={{fontWeight:"light", mt:"2.5rem", pb:"0.5rem", pb: 3}}>All steam commands will start with /steam.</Typography>
         <Grid item sx={{pb: '0.5rem'}}>
-          <Typography variant="subtitle2" component="h4" color="primary" sx={{fontWeight:"light", mt:"2.5rem", pb:"0.5rem"}}>All steam commands will start with /steam.</Typography>
             <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -339,6 +295,5 @@ export default function DenseAppBar() {
           </Grid>
         </Grid>
     </Grid>
-    </Box>
   );
 }

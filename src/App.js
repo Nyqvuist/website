@@ -4,6 +4,7 @@ import Steam from "./pages/Steam";
 import MTG from "./pages/MTG";
 import Pokemon from "./pages/Pokemon";
 import General from "./pages/General";
+import Navbar from "./pages/navbar"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material';
@@ -25,6 +26,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Main/>}/>

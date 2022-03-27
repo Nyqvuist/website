@@ -27,6 +27,7 @@ import list from "../assets/list.gif";
 import rulings from "../assets/rulings.gif";
 import newlogo from "../assets/newlogotrans.png";
 import { Skeleton } from '@mui/material';
+import { Container } from '@mui/material';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -55,51 +56,7 @@ export default function DenseAppBar() {
     setState(open)
   }
   return (
-    <Box sx = {{flexGrow: 1}}>
-      <AppBar position="static" color = "secondary" elevation={0}>
-        <Toolbar sx={{py:0.5}}>
-        <Link href="/">
-          <Avatar variant ="rounded" alt="Logo" src={newlogo} sx={{width: 52, height: 64, pl:8}}/>
-        </Link>
-          <Typography sx={{flexGrow:1, ml: 2, fontWeight:"bold", fontSize:20, mr:1}}>
-            Hashashin
-          </Typography>
-          <IconButton
-            color="inherit"
-            edge="start"
-            aria-label='menu'
-            onClick = {toggleDrawer(true)}
-            sx={{pr:8}}
-          >
-            <MenuIcon/>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    <Box>
-      <Drawer
-        anchor='right'
-        open={state}
-        onClose={toggleDrawer(false)}
-        variant='temporary'
-      >
-        <List>
-          <ListSubheader sx = {{textAlign: "center", fontWeight: "bold", fontSize: "1rem"}}> Hashashin Commands
-            <ListItem button divider component="a" href="/general"> 
-              <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
-            </ListItem>
-            <ListItem button divider component="a" href="/steam">
-              <ListItemText sx = {{textAlign: "center"}} primary="Steam Commands" />
-            </ListItem>
-            <ListItem button divider component="a" href="/pokemon">
-              <ListItemText sx = {{textAlign: "center"}} primary="Pokemon Commands"/>
-            </ListItem>
-            <ListItem button divider component="a" href="/mtg">
-              <ListItemText sx = {{textAlign: "center"}} primary="MTG Commands"/>
-            </ListItem>
-          </ListSubheader>
-        </List>
-      </Drawer>
-    </Box>
+   <Container maxWidth="xl">
     <Grid 
         container 
         direction="column"
@@ -115,7 +72,7 @@ export default function DenseAppBar() {
           </Typography>
         </Grid>
         <Grid item sx={{pb: '0.5rem'}}>
-          <Typography variant="subtitle2" component="h4" color="primary" sx={{fontWeight:"light", mt:"2rem", pb:"0.5rem"}}>All MTG commands will start with /mtg.</Typography>
+          <Typography variant="subtitle2" component="h4" color="primary" sx={{fontWeight:"light", mt:"2rem", pb:3, textAlign:"center"}}>All MTG commands will start with /mtg.</Typography>
             <Accordion sx={{backgroundColor: '#eedbc3'}}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -148,7 +105,7 @@ export default function DenseAppBar() {
                       aria-describedby="alert-dialog-slide-description"
                       >
                         <DialogContent sx={{color:'#eedbc3'}}>
-                          <img src={gif} alt="/search"/>
+                          <img src={gif} width="100" alt="/search"/>
                         </DialogContent>
                     </Dialog>
                 </AccordionDetails>
@@ -236,7 +193,7 @@ export default function DenseAppBar() {
         <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
           <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
         </Fab>
-        <Typography color="secondary" sx={{textAlign:"center", pt:"1.5rem"}}>More Commands</Typography>
+        <Typography color="secondary" sx={{textAlign:"center", pt:"1.5rem", pb:3}}>More Commands</Typography>
         <Grid
         container
         direction="row"
@@ -255,6 +212,6 @@ export default function DenseAppBar() {
           </Grid>
         </Grid>
     </Grid>
-    </Box>
+    </Container>
   );
 }
