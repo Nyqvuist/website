@@ -82,7 +82,7 @@ export default function DenseAppBar() {
                 <Typography sx={{fontWeight: "bold"}}>card</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{width:'60vw'}}>
-                    <Typography sx={{pb: "0.5rem"}}>Will pull up the image of the search card. </Typography>
+                    <Typography sx={{pb: "0.5rem"}}>Will pull up the image of the searched card. </Typography>
                     <Grid
                       container
                       spacing={1.5}
