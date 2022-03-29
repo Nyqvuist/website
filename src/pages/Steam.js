@@ -27,7 +27,8 @@ import update from "../assets/update.gif";
 import specials from "../assets/specials.gif";
 import newlogo from "../assets/newlogotrans.png";
 import { Skeleton } from '@mui/material';
-import testlogo from "../assets/newlogotest.png"
+import testlogo from "../assets/newlogotest.png";
+import GitIcon from "./smallfooter";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -64,7 +65,7 @@ export default function DenseAppBar() {
         justifyContent="center"
         alignItems="center">
         <Grid item>
-            <Typography variant="h4"  component="h4" color="secondary" sx={{mt:"2rem", fontWeight:"bold", textAlign: 'center', mb:"2.5rem"}}>Steam Commands</Typography>
+            <Typography variant="h4"  component="h4" color="secondary" sx={{fontWeight:"bold", textAlign: 'center', my:8}}>Steam Commands</Typography>
         </Grid>
         <Grid item>
           <Typography variant="subtitle1" component="h4" color="secondary" sx={{fontWeight:"light", textAlign:'center'}}>
@@ -273,9 +274,9 @@ export default function DenseAppBar() {
             </Accordion>
         </Grid>
         <Skeleton sx={{width:"18rem", mt:"4rem", backgroundColor:"#eedbc3"}}/>
-        <Fab size="medium" color="primary" variant="extended" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
+        <Button size="medium" color="primary" variant="contained" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
           <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
-        </Fab>
+        </Button>
         <Typography color="secondary" sx={{textAlign:"center", pt:"1.5rem"}}>More Commands</Typography>
         <Grid
         container

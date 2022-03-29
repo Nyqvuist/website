@@ -22,7 +22,14 @@ const theme = createTheme({
       paper: "#eedbc3",
     },
   },
+  typography: {
+    fontFamily: [
+      'Raleway',
+      'sans-serif'
+    ].join(','),
+  }
 });
+
 
 function App() {
   return (
