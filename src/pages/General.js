@@ -180,14 +180,14 @@ export default function DenseAppBar() {
         <Button size="medium" color="primary" variant="contained" sx={{position:"fixed", bottom:16, right: 16, textTransform:"none", width: 80}}>
           <a href='https://discord.com/api/oauth2/authorize?client_id=767525425865818142&permissions=534723951680&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D%5B767525425865818142%5D%26scope%3Dbot&scope=bot%20applications.commands&permissions=8'>Invite</a>
         </Button>
-        <Typography color="secondary" sx={{textAlign:"center", pt:"1.5rem", pb:3 }}>More Commands</Typography>
+        <Typography color="secondary" sx={{textAlign:"center", mb:3, mt:"4rem"}}>More Commands</Typography>
         <Grid
         container
         direction="row"
         spacing={2.5}
         justifyContent="center"
         alignItems="flex-start"
-        sx={{pt:"1.5rem", textAlign:"center", mb:"4rem"}}>
+        sx={{textAlign:"center", mb:"4rem"}}>
           <Grid item>
             <Button variant="outlined" color="primary" href="/steam" sx={{textTransform:"none", width: 90}}>Steam</Button>
           </Grid>
