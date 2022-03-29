@@ -58,7 +58,7 @@ function Footer() {
                             Invite</Link>
                         </Typography>
                         <Typography sx={{fontSize:13, textAlign:"left", fontWeight:"bold"}} color="primary">
-                        <Link href="mailto:hashashinbot@gmail.com">Support</Link>
+                        <Link color="inherit" href="mailto:hashashinbot@gmail.com">Support</Link>
                         </Typography>
                     </Grid>
                     <Grid item>

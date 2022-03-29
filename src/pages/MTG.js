@@ -16,6 +16,7 @@ import { AccordionDetails } from '@mui/material';
 import { AccordionSummary } from '@mui/material';
 import card from "../assets/card.gif";
 import { Chip } from '@mui/material';
+import Footer from "./footer";
 
 
 
@@ -45,7 +46,6 @@ export default function DenseAppBar() {
     setState(open)
   }
   return (
-   <Container maxWidth="xl">
     <Grid 
         container 
         direction="column"
@@ -189,7 +189,7 @@ export default function DenseAppBar() {
         spacing={2.5}
         justifyContent="center"
         alignItems="flex-start"
-        sx={{pt:"1.5rem", textAlign:"center", mb:"2rem"}}>
+        sx={{pt:"1.5rem", textAlign:"center", mb:"4rem"}}>
           <Grid item>
             <Button variant="outlined" color="primary" href="/steam" sx={{textTransform:"none", width: 90}}>Steam</Button>
           </Grid>
@@ -200,7 +200,7 @@ export default function DenseAppBar() {
           <Button variant="outlined" color="primary" href="/general" sx={{textTransform:"none", width: 90}}>General</Button>
           </Grid>
         </Grid>
+        <Footer/>
     </Grid>
-    </Container>
   );
 }

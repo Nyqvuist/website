@@ -15,6 +15,7 @@ import count from "../assets/count.gif";
 import update from "../assets/update.gif";
 import specials from "../assets/specials.gif";
 import { Skeleton } from '@mui/material';
+import Footer from "./footer";
 
 
 
@@ -271,7 +272,7 @@ export default function DenseAppBar() {
         spacing={2.5}
         justifyContent="center"
         alignItems="flex-start"
-        sx={{pt:"1.5rem", textAlign:"center", mb:"2rem"}}>
+        sx={{pt:"1.5rem", textAlign:"center", mb:"4rem"}}>
           <Grid item>
             <Button variant="outlined" color="primary" href="/mtg" sx={{textTransform:"none", width: 90}}>MTG</Button>
           </Grid>
@@ -282,6 +283,7 @@ export default function DenseAppBar() {
           <Button variant="outlined" color="primary" href="/general" sx={{textTransform:"none", width: 90}}>General</Button>
           </Grid>
         </Grid>
+        <Footer/>
     </Grid>
   );
 }

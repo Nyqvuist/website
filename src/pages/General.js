@@ -13,7 +13,7 @@ import d6 from "../assets/d6.gif";
 import coin from "../assets/coin.gif";
 import { Slide } from '@mui/material';
 import { Skeleton } from '@mui/material';
-
+import Footer from "./footer";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -187,7 +187,7 @@ export default function DenseAppBar() {
         spacing={2.5}
         justifyContent="center"
         alignItems="flex-start"
-        sx={{pt:"1.5rem", textAlign:"center", mb:"2rem"}}>
+        sx={{pt:"1.5rem", textAlign:"center", mb:"4rem"}}>
           <Grid item>
             <Button variant="outlined" color="primary" href="/steam" sx={{textTransform:"none", width: 90}}>Steam</Button>
           </Grid>
@@ -198,6 +198,7 @@ export default function DenseAppBar() {
           <Button variant="outlined" color="primary" href="/mtg" sx={{textTransform:"none", width: 90}}>MTG</Button>
           </Grid>
         </Grid>
+        <Footer/>
     </Grid>
     </>
   );
