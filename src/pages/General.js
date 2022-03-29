@@ -1,33 +1,19 @@
 import React, { useState } from 'react'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar, ListItemText, ListSubheader } from '@mui/material';
-import logo from "../assets/logotrans.png"
 import { Button } from '@mui/material';
-import { Drawer } from '@mui/material';
-import { List } from '@mui/material';
-import { ListItem } from '@mui/material';
 import { Grid } from '@mui/material';
 import "../styles/Main.css";
-import { Link } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
-import { Fab } from '@mui/material';
 import { Dialog } from '@mui/material';
 import { DialogContent } from '@mui/material';
 import d20 from "../assets/d20.gif";
 import d6 from "../assets/d6.gif";
 import coin from "../assets/coin.gif";
 import { Slide } from '@mui/material';
-import newlogo from "../assets/newlogotrans.png";
 import { Skeleton } from '@mui/material';
-import GitIcon from "./smallfooter";
+
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {

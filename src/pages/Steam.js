@@ -1,18 +1,8 @@
 import React, { useState } from 'react'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar, ListItemText, ListSubheader, useScrollTrigger } from '@mui/material';
 import { Button } from '@mui/material';
-import { Drawer } from '@mui/material';
-import { List } from '@mui/material';
-import { ListItem } from '@mui/material';
 import { Grid } from '@mui/material';
 import "../styles/Main.css";
-import { Link } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Chip } from '@mui/material';
@@ -20,15 +10,12 @@ import search from "../assets/search.gif";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
-import { Fab } from '@mui/material';
 import random from "../assets/random.gif";
 import count from "../assets/count.gif";
 import update from "../assets/update.gif";
 import specials from "../assets/specials.gif";
-import newlogo from "../assets/newlogotrans.png";
 import { Skeleton } from '@mui/material';
-import testlogo from "../assets/newlogotest.png";
-import GitIcon from "./smallfooter";
+
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {

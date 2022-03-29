@@ -1,32 +1,18 @@
 import React, { useState } from 'react'
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar, ListItemButton, ListItemText, ListSubheader } from '@mui/material';
 import { Button } from '@mui/material';
-import { Drawer } from '@mui/material';
-import { List } from '@mui/material';
-import { ListItem } from '@mui/material';
 import { Grid } from '@mui/material';
 import "../styles/Main.css";
-import { Link } from '@mui/material';
-import newlogo from "../assets/newlogotrans.png";
 import { useScrollTrigger } from '@mui/material';
 import { Zoom } from '@mui/material';
-import { Fab } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Container } from '@mui/material';
-import steam_img from "../assets/stam_img.png";
 import Footer from "./footer";
 import undraw1 from "../assets/undrawsearch.svg";
 import undraw2 from "../assets/undrawre.svg";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import testlogo from "../assets/newlogotest.png";
-import EmailIcon from '@mui/icons-material/Email';
+
 
 
 function ScrollTop(props) {

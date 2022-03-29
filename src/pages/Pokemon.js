@@ -1,34 +1,20 @@
 import React, { useState } from 'react'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar, ListItemText, ListSubheader } from '@mui/material';
-import logo from "../assets/logotrans.png"
 import { Button } from '@mui/material';
-import { Drawer } from '@mui/material';
-import { List } from '@mui/material';
-import { ListItem } from '@mui/material';
 import { Grid } from '@mui/material';
 import "../styles/Main.css";
-import { Link } from '@mui/material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Chip } from '@mui/material';
-import { Fab } from '@mui/material';
 import route from "../assets/route.gif";
 import nature from "../assets/nature.gif";
 import { Dialog } from '@mui/material';
 import { Slide } from '@mui/material';
 import { DialogContent } from '@mui/material';
-import newlogo from "../assets/newlogotrans.png";
 import { Skeleton } from '@mui/material';
 import { Container } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import GitIcon from "./smallfooter";
+
 
 
 

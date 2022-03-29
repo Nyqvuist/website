@@ -1,19 +1,11 @@
-import { Container, Link } from '@mui/material';
+import { Link } from '@mui/material';
 import { Grid } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
 import testlogo from "../assets/newlogotest.png";
 import { Avatar } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Icon } from '@mui/material';
 import React, { useState }  from 'react'
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { IconButton } from '@mui/material';
-import { Box } from '@mui/material';
-import { textAlign } from '@mui/system';
-import undraw1 from "../assets/undrawsearch.svg";
-import undraw2 from "../assets/undrawre.svg";
 import EmailIcon from '@mui/icons-material/Email';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
