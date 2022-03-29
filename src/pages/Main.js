@@ -12,6 +12,7 @@ import { Container } from '@mui/material';
 import Footer from "./footer";
 import undraw1 from "../assets/undrawsearch.svg";
 import undraw2 from "../assets/undrawre.svg";
+import { Grid } from '@mui/material';
 
 
 
