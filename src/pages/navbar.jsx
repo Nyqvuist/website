@@ -1,6 +1,5 @@
 import React, { useState }  from 'react'
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -8,11 +7,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar } from '@mui/material';
 import { Link } from '@mui/material';
 import testlogo from "../assets/newlogotest.png"
-import { Button } from '@mui/material';
 import { Drawer } from '@mui/material';
 import { List } from '@mui/material';
 import { ListItem } from '@mui/material';
-import { ListItemButton } from '@mui/material';
 import { ListItemText } from '@mui/material';
 import { ListSubheader } from '@mui/material';
 
@@ -52,17 +49,8 @@ function Navbar() {
           >
             <List>
               <ListSubheader sx = {{textAlign: "center", fontWeight: "bold", fontSize: "1rem"}}> Hashashin Commands
-                <ListItem button divider component="a" href="/general">
-                  <ListItemText sx = {{textAlign: "center"}} primary="General Commands" />
-                </ListItem>
-                <ListItemButton divider component="a" href="/steam">
-                  <ListItemText sx = {{textAlign: "center"}} primary="Steam Commands" />
-                </ListItemButton>
-                <ListItem button divider component="a" href="/pokemon">
-                  <ListItemText sx = {{textAlign: "center"}} primary="Pokemon Commands"/>
-                </ListItem>
-                <ListItem button divider component="a" href="/mtg">
-                  <ListItemText sx = {{textAlign: "center"}} primary="MTG Commands"/>
+                <ListItem button divider component="a" href="/commands">
+                  <ListItemText sx = {{textAlign: "center"}} primary="All Commands" />
                 </ListItem>
               </ListSubheader>
             </List>

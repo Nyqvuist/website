@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import testlogo from "../assets/newlogotest.png";
 import { Avatar } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import React, { useState }  from 'react'
+import React  from 'react'
 import Typography from '@mui/material/Typography';
 import { IconButton } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
@@ -64,19 +64,7 @@ function Footer() {
                     <Grid item>
                         <Typography variant='h6' sx={{fontWeight:"bold", fontSize:15, textAlign:"left"}}>Commands</Typography>
                         <Typography sx={{fontSize:13, textAlign:"left", fontWeight:"bold"}} color="primary">
-                            <Link href="/steam" color="inherit">Steam
-                            </Link>
-                        </Typography>
-                        <Typography sx={{fontSize:13, textAlign:"left", fontWeight:"bold"}} color="primary">
-                            <Link href="/general" color="inherit">General
-                            </Link>
-                        </Typography>
-                        <Typography sx={{fontSize:13, textAlign:"left", fontWeight:"bold"}} color="primary">
-                            <Link href="/pokemon" color="inherit">Pokemon
-                            </Link>
-                        </Typography>
-                        <Typography sx={{fontSize:13, textAlign:"left", fontWeight:"bold"}} color="primary">
-                            <Link href="/mtg" color="inherit">MTG
+                            <Link href="/commands" color="inherit">All Commands
                             </Link>
                         </Typography>
                     </Grid>

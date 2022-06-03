@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
@@ -6,7 +6,6 @@ import { Grid } from '@mui/material';
 import "../styles/Main.css";
 import { useScrollTrigger } from '@mui/material';
 import { Zoom } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Container } from '@mui/material';
 import Footer from "./footer";
@@ -51,16 +50,8 @@ function ScrollTop(props) {
 
 export default function DenseAppBar(props) {
 
-  
-  const [state, setState] = useState(false)
-  
-  const theme = createTheme();
-
   const matches = useMediaQuery('(max-width:765px)');
 
-  const toggleDrawer = (open) => (e) => {
-    setState(open)
-  }
   return (
     <>
     <Grid container
@@ -168,5 +159,3 @@ export default function DenseAppBar(props) {
     </>
   );
 }
-
-{/* xs, variant, my */}
